@@ -7,4 +7,8 @@
        name: "{{ name }}"
        image: "{{ image }}"
        state: started
+    - name: check container status
+      command: docker ps -a
+      register: result
+    - debug: var=result.stdout
 
