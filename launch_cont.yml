@@ -1,0 +1,9 @@
+---
+ - hosts: localhost
+   remote_user: root
+   tasks:
+    - name: creating container
+      docker_container:
+       name: "{{ name }}"
+       image: "{{ image }}"
+       detach: true
