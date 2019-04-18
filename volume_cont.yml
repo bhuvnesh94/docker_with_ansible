@@ -1,0 +1,15 @@
+---
+ - hosts: localhost
+   remote_user: root
+   tasks:
+    - name: creating directory for volume
+      file:
+       path: "{{ path }}"
+       state: directory
+       mode: 0755
+
+    - name: creating container with volume
+      docker_container:
+       name: "{{ name }}"
+       image: "{{ image }}"
+       volumes: "{{ path }}"
