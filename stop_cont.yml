@@ -1,0 +1,8 @@
+---
+ - hosts: localhost
+   remote_user: root
+   tasks:
+    - name: stop a running container
+      docker_container:
+       name: "{{ name }}"
+       state: stopped
