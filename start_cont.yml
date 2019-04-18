@@ -1,0 +1,10 @@
+---
+ - hosts: localhost
+   remote_user: root
+   tasks:
+    - name: starting container 
+      docker_container:
+       name: "{{ name }}"
+       image: "{{ image }}"
+       state: started
+
