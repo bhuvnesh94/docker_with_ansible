@@ -1,0 +1,32 @@
+---
+ - hosts: localhost
+   tasks:
+    - name: Adding docker repo into machine
+      yum_repository:
+       name: docker
+       description: docker repo
+       baseurl: ftp://192.168.10.254/pub/adhoc/docker/
+       gpgcheck: no
+       async: yes
+    - name: installing docker
+      yum: 
+       name: docker
+       state: present
+    - name: installing pip
+      yum:
+       name: python2-pip
+       state: present
+    - name: installing docker with pip
+      pip:
+       name: docker
+       state: present
+    - name: upgrading pip
+      pip: 
+       name: pip
+       extra_args: --upgrade
+ 
+    - name: enable and restart docker service
+      service:
+       name: docker
+       state: restarted
+       enabled: yes
