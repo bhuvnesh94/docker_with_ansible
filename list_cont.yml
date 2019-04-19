@@ -1,0 +1,15 @@
+---
+ - hosts: localhost
+   remote_user: root
+   tasks:
+    - name: include variables
+      include_vars: vars.yml
+    - name: running container status
+      command: docker ps 
+      register: result
+    - debug: var=result.stdout
+    - name: all container list
+      command: docker ps -a
+      register: result1
+    - debug: var=result1.stdout
+
