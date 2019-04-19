@@ -1,25 +1,32 @@
 ---
  - hosts: localhost
    tasks:
+    - name: including variable file
+      include_vars: vars.yml
+ 
     - name: Adding docker repo into machine
       yum_repository:
-       name: docker
+       name: "{{ repo_name }}"
        description: docker repo
-       baseurl: ftp://192.168.10.254/pub/adhoc/docker/
+       baseurl: "{{ baseurl }}"
        gpgcheck: no
        async: yes
+
     - name: installing docker
       yum: 
        name: docker
        state: present
+
     - name: installing pip
       yum:
        name: python2-pip
        state: present
+
     - name: installing docker with pip
       pip:
        name: docker
        state: present
+
     - name: upgrading pip
       pip: 
        name: pip
