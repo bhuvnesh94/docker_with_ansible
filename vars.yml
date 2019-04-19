@@ -1,0 +1,10 @@
+image: centos 
+name: andoc-web
+src_port: 81
+dest_port: 80 
+src_vol: /mnt/www 
+dest_vol: /var/www/html
+privileged: true
+dir: bhanu
+path: /mnt/wel
+count: 5
