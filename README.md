@@ -15,7 +15,8 @@ Instructions to execute playbooks as follows:-\
 6. volume_cont.yml@
    ansible-playbook volume_cont.yml -e "path=location_for_directory name=cont_name image=image_to_use"
 7. multiple_cont.yml@
-   ansible-playbook multiple_cont.yml -e "dir=directory_name name=cont_name image=image_name"
+   ansible-playbook multiple_cont.yml -e "count=int_value dir=directory_name name=cont_name image=image_name"
    
    Note:- volume dorectory is building under /mnt/
+          count is integer value, how much you want to launch container.
 
