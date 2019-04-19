@@ -1,0 +1,18 @@
+---
+ - hosts: localhost
+   remote_user: root
+   tasks:
+    - name: name for directory from where container will use volume
+      file:
+       path: /mnt/{{ dir }}.{{ item }}
+       state: directory
+       mode: 0755
+      with_sequence: count=6
+
+    - name: creating   container 
+      docker_container:
+       name: "{{ name }}.{{ item }}"
+       image: "{{ image }}"
+       volumes: /mnt/{{ dir }}.{{ item }}
+       detach: true 
+      with_sequence: count=6
