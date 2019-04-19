@@ -22,7 +22,7 @@ Instructions to execute playbooks as follows:-\
 8. vars.yml@
    it is a variable file where variables are defined for the playbooks.
    
-**Note:- volume dorectory is building under /mnt/**
+**Note:- volume directory is building under /mnt/**
           count is string value, how much you want to launch container i.e count="3"
 
 
