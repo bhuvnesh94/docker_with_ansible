@@ -7,7 +7,7 @@
        path: /mnt/{{ dir }}.{{ item }}
        state: directory
        mode: 0755
-      with_sequence: count=6
+      with_sequence: "{{ count }}"
 
     - name: creating   container 
       docker_container:
@@ -15,4 +15,4 @@
        image: "{{ image }}"
        volumes: /mnt/{{ dir }}.{{ item }}
        detach: true 
-      with_sequence: count=6
+      with_sequence: "{{ count }}"
