@@ -8,3 +8,5 @@ privileged: true
 dir: helii
 path: /mnt/helii
 count: "2"
+baseurl: ftp://192.168.10.254/pub/adhoc/docker/
+repo_name: docker
