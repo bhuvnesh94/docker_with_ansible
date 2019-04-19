@@ -12,6 +12,7 @@
        mode: 0755
       with_sequence: "{{ count }}"
 
+
     - name: creating   container 
       docker_container:
        name: "{{ name }}.{{ item }}"
