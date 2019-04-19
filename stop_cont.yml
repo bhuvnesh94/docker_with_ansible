@@ -2,6 +2,7 @@
  - hosts: localhost
    remote_user: root
    tasks:
+    
     - name: include variables
       include_vars: vars.yml
 
