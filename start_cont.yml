@@ -2,11 +2,18 @@
  - hosts: localhost
    remote_user: root
    tasks:
+    - name: include variables
+      include_vars: vars.yml
     - name: starting container 
       docker_container:
        name: "{{ name }}"
        image: "{{ image }}"
+       interactive: True
+       detach: True
+       command: /bin/bash
        state: started
+       restart: True
+
     - name: check container status
       command: docker ps -a
       register: result

@@ -2,8 +2,15 @@
  - hosts: localhost
    remote_user: root
    tasks:
+    - name: include variables
+      include_vars: vars.yml
+  
     - name: creating container
       docker_container:
        name: "{{ name }}"
        image: "{{ image }}"
-       detach: true
+       interactive: True
+       detach: True
+       command: /bin/bash
+       state: started
+       restart: True
