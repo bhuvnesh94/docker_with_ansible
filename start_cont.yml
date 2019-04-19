@@ -4,6 +4,8 @@
    tasks:
     - name: include variables
       include_vars: vars.yml
+
+
     - name: starting container 
       docker_container:
        name: "{{ name }}"
